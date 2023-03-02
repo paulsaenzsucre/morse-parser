@@ -40,20 +40,20 @@ MORSE_CODE = {
 }.freeze
 
 def decode_char(char_code)
-  @letter = MORSE_CODE[char_code]
+  letter = MORSE_CODE[char_code]
 end
 
 def decode_word(word_code)
-  @word = ''
-  @letters_code = word_code.split
-  @letters_code.each { |letter_code| @word << (decode_char letter_code) }
-  @word
+  word = ''
+  letters_code = word_code.split
+  letters_code.each { |letter_code| word += (decode_char letter_code) }
+  word
 end
 
 def decode(msg_code)
-  @words_code = msg_code.split('   ')
-  @words_code = @words_code.map { |word_code| (decode_word word_code) }
-  @msj = @words_code.join(' ')
+  words_code = msg_code.split('   ')
+  words_code = words_code.map { |word_code| (decode_word word_code) }
+  msj = words_code.join(' ')
 end
 
 puts 'Enter a message in Morse code.'
