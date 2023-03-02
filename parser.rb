@@ -36,3 +36,14 @@ MORSE_CODE = {
   '---..' => '8',
   '----.' => '9'
 }
+
+def decode_char(char_code)
+  @letter = MORSE_CODE[char_code]
+end
+
+def decode_word(word_code)
+  @word = ''
+  @letters_code = word_code.split
+  @letters_code.each {|letter_code| @word << (decode_char letter_code)}
+  return @word
+end
