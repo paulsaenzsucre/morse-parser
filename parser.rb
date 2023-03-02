@@ -47,3 +47,17 @@ def decode_word(word_code)
   @letters_code.each {|letter_code| @word << (decode_char letter_code)}
   return @word
 end
+
+def decode(msg_code)
+  @words_code = msg_code.split('   ')
+  @words_code = @words_code.map {|word_code| (decode_word word_code)}
+  @msj = @words_code.join (' ')
+end
+
+puts 'Enter a message in Morse code.'
+puts 'Do not forget to separate words with three spaces and'
+puts 'letters in a word with one space:'
+
+msg = gets.chomp
+
+puts decode(msg)
